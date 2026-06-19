@@ -1,57 +1,71 @@
-# Xed-Editor Extension Template
+# Lua-LSP Extension for Xed-Editor
 
-This repository is a starting point for building extensions for **Xed-Editor (Karbon)**.
-It includes a ready-to-use template, build scripts, and a simple folder structure so you can focus on writing your extension instead of setting up the environment.
+`Lua-LSP` is a fast Lua Language Server (LSP) extension for **Xed-Editor (Karbon)**. It provides real-time diagnostics, autocompletion, formatting, and other IDE-like language features for Lua files.
 
-> [!TIP]
-> See the [documentation](https://xed-editor.github.io/Xed-Docs/docs/extensions) page for more details about creating and managing extensions for Xed-Editor.
+This extension packages and runs [emmylua-analyzer-rust](https://github.com/UndeadScythes/emmylua-analyzer-rust)—a high-performance EmmyLua language server written in Rust—natively on Android.
 
 ---
 
-## Getting Started
+## Features
 
-### 1. Clone the Template
+- **Autocompletion & IntelliSense**: Snippets, variables, functions, and standard library completions.
+- **Real-time Diagnostics**: Quick syntax checking using `emmylua_check`.
+- **Code Formatting**: Built-in formatter powered by `luafmt`.
+- **Native Performance**: Runs precompiled native binaries compiled for Android architectures with minimal overhead.
+- **Multi-architecture Support**: Bundled with binaries for:
+  - `arm64-v8a`
+  - `armeabi-v7a`
+  - `x86_64`
 
-```bash
-git clone https://github.com/Xed-Editor/Extension-Template
-cd Extension-Template
+---
+
+## How It Works
+
+1. On load, the extension detects the system architecture (`Build.SUPPORTED_ABIS`).
+2. It locates the corresponding native binary (`emmylua_ls`) in the extension's installation directory.
+3. It registers the server with Xed-Editor's `LspRegistry` using the appropriate system linker (`linker` or `linker64`).
+
+---
+
+## Building the Extension
+
+To build the extension, you need a standard Java/Android development environment.
+
+### 1. Build commands
+
+* **Debug Build**:
+  ```bash
+  ./compileDebug
+  ```
+
+* **Release Build**:
+  ```bash
+  ./compileRelease
+  ```
+
+### 2. Output Package
+
+After a successful build, the packaged extension is created at:
+```
+output/Lua-LSP.zip
 ```
 
 ---
 
-### 2. Configure Your Extension
+## Installation
 
-Before building, update the following in `manifest.json`:
-
-* `name` – your extension’s name
-* `version` – version of your extension
-* `author` – Developer of the extension
-
->[!WARNING]
-If you rename the main class or move it to another package/folder, **you must update the `mainClass` field in `manifest.json`**, or the extension will not load.
+1. Open **Xed-Editor** on your device.
+2. Go to the **Extensions** configuration section.
+3. Choose the option to install/load an extension from a file and select the compiled `Lua-LSP.zip`.
 
 ---
 
-### 3. Build the Extension
+## Compatibility & Metadata
 
-To build the extension in **debug mode**, run:
+As configured in `manifest.json`:
 
-```bash
-./compileDebug
-```
-
-(You can create your own release script later if needed.)
-
----
-
-### 4. Find the Output
-
-After a successful build, your extension package will be created here:
-
-```
-output/YourExtensionName.zip
-```
-
-This ZIP file is what you load into **Xed-Editor** as a extension.
-
-This includes guides, API references, examples, and best practices for developing your extensions.
+- **Extension ID**: `com.rk.lua`
+- **Supported App Versions**: Xed-Editor version `87` to `95`
+- **Supported File Types**: `.lua`
+- **Developer**: [RohitKushvaha01](https://github.com/RohitKushvaha01)
+- **Repository**: [RohitKushvaha01/Lua-LSP](https://github.com/RohitKushvaha01/Lua-LSP)

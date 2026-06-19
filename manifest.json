@@ -1,14 +1,15 @@
 {
   "$schema": "schema/schema.json",
-  "id": "com.rk.demo",
-  "name": "Extension template",
-  "mainClass": "com.rk.demo.Main",
-  "version": "1.0.0",
-  "description": "A demo extension template project",
+  "id": "com.rk.lua",
+  "name": "Lua-LSP",
+  "mainClass": "com.rk.lua.Main",
+  "version": "1.0.1",
+  "description": "A fast lua lsp",
   "author": {
-    "displayName": "Unknown"
+    "displayName": "RohitKushvaha01",
+    "github": "RohitKushvaha01"
   },
   "minAppVersion": 87,
-  "maxAppVersion": 87,
-  "repository": "https://github.com/Xed-Editor/Extension-Template"
+  "maxAppVersion": 95,
+  "repository": "https://github.com/RohitKushvaha01/Lua-LSP"
 }

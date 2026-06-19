@@ -207,6 +207,12 @@ tasks.register<Zip>("createFinalZip") {
     from(iconFile) { into("") }
     from(readmeFile) { into("") }
     from(changelogFile) { into("") }
+    from(File(rootDir, "bin")) {
+        into("bin")
+        filePermissions {
+            unix(493)
+        }
+    }
 
     destinationDirectory.set(File(rootDir, "output"))
 }
