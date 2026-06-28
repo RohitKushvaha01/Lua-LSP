@@ -10,6 +10,6 @@
     "github": "RohitKushvaha01"
   },
   "minAppVersion": 87,
-  "maxAppVersion": 95,
+  "maxAppVersion": null,
   "repository": "https://github.com/RohitKushvaha01/Lua-LSP"
 }
