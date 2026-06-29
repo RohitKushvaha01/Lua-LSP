@@ -3,7 +3,7 @@
   "id": "com.rk.lua",
   "name": "Lua-LSP",
   "mainClass": "com.rk.lua.Main",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fast lua lsp",
   "author": {
     "displayName": "RohitKushvaha01",
